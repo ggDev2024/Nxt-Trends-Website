@@ -1,0 +1,50 @@
+/* Write your CSS here */
+.star_image {
+  height: 90%;
+  width: 50%;
+  margin-left: 5px;
+}
+
+.similar_product_card {
+  height: 70%;
+  width: 25vw;
+  padding: 5px;
+  margin-right: 30px;
+}
+
+.similar_product_card_img {
+  height: 300px;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+}
+
+.similar_product_heading {
+  font-size: 100%;
+}
+
+.similar_product_description {
+  color: #475569;
+}
+
+.similar_product_price_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 60px;
+  font-size: 60%;
+}
+
+.similar_product_reviews {
+  font-size: 150%;
+  height: 30px;
+  width: 20%;
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  background-color: #3b82f6;
+}

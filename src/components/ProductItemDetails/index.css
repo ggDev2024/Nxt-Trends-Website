@@ -1,0 +1,130 @@
+/* Write your CSS here */
+.product_details_container {
+  font-family: 'roboto';
+  height: 530px;
+  width: 100vw;
+  padding-left: 9%;
+  padding-right: 9%;
+  display: flex;
+}
+
+.product_details_img {
+  height: 100%;
+  width: 40%;
+  border: none;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+
+.product_details_heading {
+  font-weight: 500;
+  font-size: 250%;
+}
+
+.product_details_price {
+  font-weight: 1000;
+  font-size: 130%;
+}
+
+.product_details_rating_container {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.product_details_rating {
+  height: 100%;
+  width: 12%;
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  background-color: #3b82f6;
+  margin-right: 10px;
+}
+
+.icon_styling {
+  margin-left: 5px;
+}
+
+.product_details_reviews {
+  color: #475569;
+}
+
+.product_details_description {
+  color: #616e7c;
+}
+
+.product_details_available {
+  font-weight: 500;
+}
+
+.product_details_available_value {
+  color: #475569;
+}
+
+.product_details_quantity_container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 15%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.product_details_add_button {
+  color: #ffffff;
+  background-color: #3b82f6;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.similar_product_container {
+  padding-left: 9%;
+  padding-right: 9%;
+  height: 530px;
+  width: 100vw;
+}
+
+.similar_product_card_container {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0px;
+}
+
+.failure_container {
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+  font-size: 200%;
+}
+
+.failure_img {
+  height: 80%;
+  width: 70%;
+}
+
+.failure_button {
+  background-color: #3b82f6;
+  color: #ffffff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+
+.star_image {
+  height: 80%;
+  width: 50%;
+  margin-left: 5px;
+}
+
+.add_product_button {
+  border: none;
+  background-color: transparent;
+}
