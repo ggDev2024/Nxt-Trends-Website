@@ -114,6 +114,10 @@
 .nav-link {
   text-decoration: none;
   color: #475569;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .nav-menu-item-mobile {
@@ -162,4 +166,19 @@
 
 .nav-bar-image {
   width: 24px;
+}
+
+.cart-length {
+  display: flex;
+  align-items: center;
+}
+
+.cart_length_container {
+  height: 40%;
+  background-color: #afcdfd;
+  color: #3b82f6;
+  border: none;
+  border-radius: 40%;
+  padding-left: 5px;
+  padding-right: 5px;
 }

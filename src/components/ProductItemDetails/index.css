@@ -1,15 +1,16 @@
 /* Write your CSS here */
 .product_details_container {
   font-family: 'roboto';
-  height: 530px;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   padding-left: 9%;
   padding-right: 9%;
   display: flex;
+  margin-top: 5%;
 }
 
 .product_details_img {
-  height: 100%;
+  height: 530px;
   width: 40%;
   border: none;
   border-radius: 10px;
@@ -19,6 +20,8 @@
 .product_details_heading {
   font-weight: 500;
   font-size: 250%;
+  margin-top: 0px;
+  color: #475569;
 }
 
 .product_details_price {
@@ -35,7 +38,8 @@
 
 .product_details_rating {
   height: 100%;
-  width: 12%;
+  width: 80px;
+  object-fit: cover;
   border: none;
   border-radius: 5px;
   display: flex;
@@ -71,7 +75,7 @@
   margin-bottom: 20px;
   width: 15%;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
 }
 
 .product_details_add_button {
@@ -127,4 +131,45 @@
 .add_product_button {
   border: none;
   background-color: transparent;
+}
+
+.add_product_num {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.product_details_section {
+  height: 100%;
+  width: 100%;
+}
+
+.sp_heading {
+  color: #475569;
+  font-weight: 500;
+}
+
+.products-loader-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 767px) {
+  .product_details_container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product_details_img {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .similar_product_card_container {
+    display: flex;
+    flex-direction: column;
+  }
 }

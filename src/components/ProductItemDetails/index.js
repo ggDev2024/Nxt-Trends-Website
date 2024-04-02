@@ -13,6 +13,8 @@ import Header from '../Header'
 
 import SimilarProductItem from '../SimilarProductItem'
 
+import CartContext from '../../context/CartContext'
+
 import './index.css'
 
 class ProductItemDetails extends Component {
@@ -82,89 +84,113 @@ class ProductItemDetails extends Component {
     }
   }
 
-  renderProductDetails = () => {
-    const {count, productDetails, similarProduct} = this.state
-    const {
-      imageUrl,
-      title,
-      price,
-      description,
-      brand,
-      totalReview,
-      rating,
-      availability,
-    } = productDetails
+  renderProductDetails = () => (
+    <CartContext.Consumer>
+      {value => {
+        const {addCartItemList} = value
 
-    return (
-      <>
-        <div className="product_details_container">
-          <img className="product_details_img" src={imageUrl} alt="product" />
-          <div>
-            <div>
-              <h1 className="product_details_heading">{title}</h1>
-              <p className="product_details_price">Rs {price}/-</p>
-            </div>
-            <div className="product_details_rating_container">
-              <p className="product_details_rating">
-                {rating}
-                <img
-                  className="star_image"
-                  src="https://assets.ccbp.in/frontend/react-js/star-img.png"
-                  alt="star"
-                />
-              </p>
-              <p className="product_details_reviews">{totalReview} Reviews</p>
-            </div>
-            <p className="product_details_description">{description}</p>
-            <div>
-              <p className="product_details_available">Availability:</p>
-              <p className="product_details_available_value">{availability}</p>
-            </div>{' '}
-            <div>
-              <p className="product_details_available">Brand:</p>
-              <p className="product_details_available_value">{brand}</p>
-            </div>
-            <hr />
-            <div className="product_details_quantity_container">
-              <button
-                data-testid="minus"
-                onClick={this.onDecrement}
-                className="add_product_button"
-                type="button"
-              >
-                <BsDashSquare />.
-              </button>
-              <p>{count}</p>
-              <button
-                data-testid="plus"
-                onClick={this.onIncrement}
-                className="add_product_button"
-                type="button"
-              >
-                <BsPlusSquare />.
-              </button>
-            </div>
-            <div>
-              <button className="product_details_add_button" type="button">
-                ADD TO CART
-              </button>
-            </div>
-          </div>
-        </div>
-        <div className="similar_product_container">
-          <h1>Similar Products</h1>
-          <ul className="similar_product_card_container">
-            {similarProduct.map(eachProduct => (
-              <SimilarProductItem
-                spDetails={eachProduct}
-                key={eachProduct.id}
+        const {count, productDetails, similarProduct} = this.state
+        const {
+          imageUrl,
+          title,
+          price,
+          description,
+          brand,
+          totalReview,
+          rating,
+          availability,
+        } = productDetails
+
+        const onClickAddToCart = () => {
+          addCartItemList({...productDetails, count})
+        }
+
+        return (
+          <>
+            <div className="product_details_container">
+              <img
+                className="product_details_img"
+                src={imageUrl}
+                alt="product"
               />
-            ))}
-          </ul>
-        </div>
-      </>
-    )
-  }
+              <div className="product_details_section">
+                <div>
+                  <h1 className="product_details_heading">{title}</h1>
+                  <p className="product_details_price">Rs {price}/-</p>
+                </div>
+                <div className="product_details_rating_container">
+                  <p className="product_details_rating">
+                    {rating}
+                    <img
+                      className="star_image"
+                      src="https://assets.ccbp.in/frontend/react-js/star-img.png"
+                      alt="star"
+                    />
+                  </p>
+                  <p className="product_details_reviews">
+                    {totalReview} Reviews
+                  </p>
+                </div>
+                <p className="product_details_description">{description}</p>
+                <div>
+                  <p className="product_details_available">Availability:</p>
+                  <p className="product_details_available_value">
+                    {availability}
+                  </p>
+                </div>{' '}
+                <div>
+                  <p className="product_details_available">Brand:</p>
+                  <p className="product_details_available_value">{brand}</p>
+                </div>
+                <hr />
+                <div className="product_details_quantity_container">
+                  <button
+                    aria-label="minus_quantity"
+                    type="button"
+                    data-testid="minus"
+                    onClick={this.onDecrement}
+                    className="add_product_button"
+                  >
+                    <BsDashSquare />
+                  </button>
+                  <p className="add_product_num">{count}</p>
+                  <button
+                    aria-label="plus_quantity"
+                    data-testid="plus"
+                    onClick={this.onIncrement}
+                    className="add_product_button"
+                    type="button"
+                  >
+                    <BsPlusSquare />
+                  </button>
+                </div>
+                <div>
+                  <button
+                    className="product_details_add_button"
+                    type="button"
+                    onClick={onClickAddToCart}
+                  >
+                    ADD TO CART
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div className="similar_product_container">
+              <h1 className="sp_heading">Similar Products</h1>
+              <ul className="similar_product_card_container">
+                {similarProduct.map(eachProduct => (
+                  <SimilarProductItem
+                    spDetails={eachProduct}
+                    key={eachProduct.id}
+                  />
+                ))}
+              </ul>
+            </div>
+          </>
+        )
+      }}
+    </CartContext.Consumer>
+  )
 
   renderLoadingView = () => (
     <div data-testid="loader" className="products-loader-container">
